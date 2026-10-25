@@ -1,0 +1,48 @@
+name: Sample App CI Compliance Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pull-requests: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'verify-action/sample-app/site'
+
+      - name: Deploy to GitHub Pages Preview
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  compliance-verify:
+    needs: deploy-preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Sovereign Compliance Verification
+        uses: Terrygilligan/compliance-audit-verify-action@v1
+        with:
+          api-key: ${{ secrets.COMPLIANCE_API_KEY }}
+          tenant-id: ${{ secrets.COMPLIANCE_TENANT_ID }}
+          region: 'europe-west1'
+          target-url: ${{ needs.deploy-preview.outputs.page_url }}
+          fail-on: 'level-a'
+          verify-chain: 'true'

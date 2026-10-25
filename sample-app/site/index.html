@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sovereign Compliance Sample Application</title>
+  <style>
+    body { font-family: system-ui, sans-serif; line-height: 1.5; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #111; }
+    h1 { color: #0f172a; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Sample Application for CI Compliance Verification</h1>
+    <p>This reference application demonstrates how automated accessibility auditing runs against deployed preview builds in GitHub Actions.</p>
+
+    <div class="card">
+      <h2>Accessibility Status</h2>
+      <p>All structural landmarks, form labels, and contrast ratios meet WCAG 2.2 Level AA requirements.</p>
+      <!--
+        Uncomment the line below to test a Level A failure gate in CI:
+        <img src="logo.png"> (Missing alt attribute -> violates WCAG 1.1.1 Level A)
+      -->
+    </div>
+  </main>
+</body>
+</html>
