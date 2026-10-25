@@ -2,3 +2,7 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+
+# sample-app is its own repo (Terrygilligan/compliance-audit-sample-app) —
+# nested .git lives inside; ignore so it is never committed as a gitlink
+sample-app/
