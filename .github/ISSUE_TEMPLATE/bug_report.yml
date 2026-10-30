@@ -1,0 +1,83 @@
+name: Bug report
+description: Report a defect in the compliance engine, audit/VPAT surface, or this GitHub Action.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting during the developer beta. This form exists to keep
+        real reports readable and bots out — incomplete reports are closed.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the product is affected?
+      options:
+        - GitHub Action (compliance-audit-verify-action)
+        - Accessibility audit API (/v1/audit, findings.csv)
+        - VPAT / conformance export
+        - Audit vault / badge verification
+        - Sanitize / assess endpoints
+        - Portal (app.compliance-audit.eu)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: audit_run_id
+    attributes:
+      label: Audit run ID
+      description: If the report is about a specific audit, paste its auditRunId (from POST /v1/audit or the dashboard).
+      placeholder: e.g. 1948618e-0138-4eee-8835-0a8bf87ded80
+    validations:
+      required: false
+
+  - type: input
+    id: tenant_id
+    attributes:
+      label: Tenant ID
+      description: Your tenant id (demo-*, not your API key — never paste a key).
+      placeholder: demo-xxxxxxxx
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+      description: Include the exact error, status code, or wrong output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Minimal steps — command, request, or UI path that shows the bug.
+      placeholder: |
+        1. POST /v1/audit with ...
+        2. GET /v1/audit/<id> shows ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      description: Required before this report is looked at.
+      options:
+        - label: I ran this against my own tenant or my own deployment — it contains no third-party customer data.
+          required: true
+        - label: I searched existing issues first and this is not a duplicate.
+          required: true
+        - label: This is a genuine bug report — spam, promotions, and SEO submissions are closed and reported.
+          required: true

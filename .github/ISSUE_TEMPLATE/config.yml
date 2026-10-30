@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support / account questions
+    url: mailto:support@compliance-audit.eu
+    about: Email for account, key, or onboarding questions — not bugs.
+  - name: Buy me a coffee
+    url: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=2Q8NHQCFDDLKQ&item_name=Tip&no_shipping=1&currency_code=EUR
+    about: If the beta saved you time.
