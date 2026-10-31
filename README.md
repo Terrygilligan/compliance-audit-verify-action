@@ -2,6 +2,18 @@
 
 A zero-dependency, open-source GitHub Action that bridges continuous integration pipelines with the Sovereign Compliance and Billing Engine (`compliance-audit.eu`).
 
+## Free beta access — no card, 90-day keys
+
+Everything is free during the developer beta. Mint a demo key (self-serve):
+
+```bash
+curl -X POST https://api.compliance-audit.eu/v1/demo/keys \
+  -H 'Content-Type: application/json' \
+  -d '{"companyName": "your-project"}'
+```
+
+The response's `tenantId` + `apiKey` go into your repo secrets as `COMPLIANCE_TENANT_ID` / `COMPLIANCE_API_KEY`. Demo keys carry the `demo` tier (sanitize, assess, badges, **audit**), expire in 90 days, and can't mint other keys. Prefer a UI? [compliance-audit.eu](https://compliance-audit.eu) — the audit sandbox there runs a scan with no key at all.
+
 ## Architectural Guarantees
 
 - **Zero Code Exfiltration:** Source code never leaves your repository. The action evaluates a deployed preview or staging URL — only abstract findings cross the wire, never your code.

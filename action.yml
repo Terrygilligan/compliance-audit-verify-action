@@ -83,3 +83,7 @@ runs:
         GITHUB_EVENT_PATH: ${{ github.event_path }}
         GITHUB_SERVER_URL: ${{ github.server_url }}
       run: node "$GITHUB_ACTION_PATH/verify.mjs"
+
+branding:
+  icon: 'shield'
+  color: 'blue'
