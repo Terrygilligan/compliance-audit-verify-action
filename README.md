@@ -84,5 +84,5 @@ jobs:
 
 ## Notes
 
-- PR scans audit a **deployed URL**. For PRs that change the page, pass a real preview-deployment URL (Vercel / Firebase Hosting channel / Netlify deploy preview). Scanning a fixed staging URL validates merged content, not the PR — see `sample-app/` for the GitHub Pages pattern.
+- PR scans audit a **deployed URL**. For PRs that change the page, pass a real preview-deployment URL (Vercel / Firebase Hosting channel / Netlify deploy preview). Scanning a fixed staging URL validates merged content, not the PR — see [Terrygilligan/compliance-audit-sample-app](https://github.com/Terrygilligan/compliance-audit-sample-app) for a working end-to-end example (GitHub Pages preview → verify on every PR).
 - Only the URL and abstract findings cross the wire — the engine never fetches or stores source code.
