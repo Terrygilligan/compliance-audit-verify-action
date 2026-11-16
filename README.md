@@ -82,6 +82,16 @@ jobs:
 
 "Repo-locked" is currently a convention, not server-side enforcement: mint one scoped key per repository and store it as that repo's secret. The runner sends an `x-github-repository` claim header with every request so future server-side repo binding can be enforced without changing the action.
 
+## Rules reference
+
+The criteria behind the checks, in plain language:
+
+- [WCAG 1.1.1 Non-text Content](https://compliance-audit.info/rules/wcag-1-1-1) — the alt-text criterion the audit's most common finding maps to
+- [WCAG 2.4.7 Focus Visible](https://compliance-audit.info/rules/wcag-2-4-7) — the `outline: none` reset failure tier-2 checks catch
+- [GDPR Art. 32 — Security of processing](https://compliance-audit.info/rules/gdpr-art-32-security) — the evidence model behind the engine's audit vault
+- [NIS2 Art. 21 — Risk-management measures](https://compliance-audit.info/rules/nis2-art-21-measures) — where CI-gated checks sit in the EU regulatory baseline
+- [Full rules reference](https://compliance-audit.info/rules) — every WCAG 2.2 A/AA criterion plus GDPR, ePrivacy, DORA, and NIS2 articles
+
 ## Notes
 
 - PR scans audit a **deployed URL**. For PRs that change the page, pass a real preview-deployment URL (Vercel / Firebase Hosting channel / Netlify deploy preview). Scanning a fixed staging URL validates merged content, not the PR — see [Terrygilligan/compliance-audit-sample-app](https://github.com/Terrygilligan/compliance-audit-sample-app) for a working end-to-end example (GitHub Pages preview → verify on every PR).
